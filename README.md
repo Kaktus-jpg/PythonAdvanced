@@ -22,7 +22,7 @@ During this course, I am improving my Python skills and exploring advanced topic
 ```text
 .
 ├── Module_1/              # Module 1 materials and tasks
-├── Module_2/              # Module 2 materials and tasks
+├── Module_3/              # Module 2 materials and tasks
 ├── ...
 ├── Module_N/              # Other course modules
 ├── src/
