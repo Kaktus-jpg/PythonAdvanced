@@ -21,10 +21,10 @@ During this course, I am improving my Python skills and exploring advanced topic
 
 ```text
 .
-├── Module 1/              # Module 1 materials and tasks
-├── Module 2/              # Module 2 materials and tasks
+├── Module_1/              # Module 1 materials and tasks
+├── Module_2/              # Module 2 materials and tasks
 ├── ...
-├── Module N/              # Other course modules
+├── Module_N/              # Other course modules
 ├── src/
 │   └── pythonadvanced/    # Package source code
 ├── .python-version        # Required Python version
@@ -60,7 +60,7 @@ uv sync
 Run a Python file from the project root:
 
 ```bash
-uv run 'Module N/Lesson/main.py'
+uv run 'Module_N/Lesson_N/main.py'
 ```
 
 ## Adding Dependencies
