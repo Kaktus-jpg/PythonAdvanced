@@ -23,7 +23,7 @@ def registration() -> tuple[str, int]:
 
         return f"Successfully registered user {email} with phone +7{phone}", 200
 
-    return f"Invalid inputm {form.errors}", 400
+    return f"Invalid input {form.errors}", 400
 
 
 if __name__ == "__main__":
