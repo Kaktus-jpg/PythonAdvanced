@@ -12,7 +12,9 @@ app = Flask(__name__)
 class Form(FlaskForm):
     code = StringField(validators=[InputRequired()])
     timeout = IntegerField(
-        filters=[lambda sec: int(sec) if 0 < int(sec) < 30 else 0],
+        filters=[
+            lambda sec: int(sec) if str(sec).isdigit() and 0 < int(sec) < 30 else 0
+        ],
         validators=[InputRequired()],
     )
 

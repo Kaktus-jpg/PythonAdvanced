@@ -20,7 +20,7 @@ class TestMain(TestCase):
         }
 
     def test_timeout_lower_than_execute_time(self):
-        self.data["code"] = "sum(num**num for num in range(10_000))"
+        self.data["code"] = "import time\ntime.sleep(2)"
         post_request = self.app.post(self.base_url, json=self.data)
         self.assertEqual(post_request.status_code, 400)
 
@@ -35,7 +35,6 @@ class TestMain(TestCase):
         run(['./kill_the_system.sh'])
         """
         post_request = self.app.post(self.base_url, json=self.data)
-        print(post_request.text)
         self.assertEqual(post_request.status_code, 400)
 
 
