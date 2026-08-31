@@ -1,9 +1,5 @@
 import unittest
-from unittest import TestCase
-
-from Module_5.Practical_7.Task_3.main import BlockErrors
-
-
+from u
 class TestBlockErrors(TestCase):
     def test_1(self):
         err_types = {ZeroDivisionError, TypeError}
@@ -38,6 +34,10 @@ class TestBlockErrors(TestCase):
                 a = 1 / 0
         except Exception as exc:
             self.fail(exc)
+nittest import TestCase
+
+from Module_5.Practical_7.Task_3.main import BlockErrors
+
 
 
 if __name__ == "__main__":

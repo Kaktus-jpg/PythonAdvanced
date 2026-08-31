@@ -1,6 +1,3 @@
-import shlex
-import subprocess
-
 from flask import Flask
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, StringField
@@ -28,40 +25,6 @@ def run_program() -> tuple[str, int]:
 
         if not (str(timeout).isdigit() and 0 < timeout < 30):
             return "timeout must be between 0 and 30 seconds", 400
-
-        quote_code = shlex.quote(code)
-
-        raw_cmd = f"prlimit --nproc=1:1 python -c {quote_code}"
-        command = shlex.split(raw_cmd)
-
-        program = subprocess.Popen(
-            command,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            stdin=subprocess.PIPE,
-        )
-
-        try:
-            program.wait(timeout=timeout)
-            stdout, stderr = program.communicate()
-            stdout = str(stdout.decode())
-            stderr = str(stderr.decode())
-
-        except subprocess.TimeoutExpired:
-            stderr = program.communicate()[1]
-            stderr = str(stderr.decode())
-
-            return f"Исполнение кода не уложилось в необходимое время<br>{stderr}", 400
-        else:
-            if program.returncode == 0:
-                return stdout, 200
-            else:
-                return (
-                    f"Программа закончилась с кодом {program.returncode}<br>{stderr}",
-                    400,
-                )
-
-    return f"Invalid input {form.errors}", 400
 
 
 if __name__ == "__main__":
